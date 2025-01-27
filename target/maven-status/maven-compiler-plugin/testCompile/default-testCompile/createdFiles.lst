@@ -1,0 +1,12 @@
+models/Env.class
+tests/BaseTest.class
+utils/FileUtils.class
+pages/MainPage.class
+tests/WikipediaDownloadTest.class
+models/EnvData.class
+models/WikipediaData.class
+utils/TestDataReader.class
+utils/EnvDataReader.class
+pages/ArticlePage.class
+pages/DownloadPage.class
+utils/JsonReader.class
