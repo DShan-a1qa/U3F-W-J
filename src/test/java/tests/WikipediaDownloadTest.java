@@ -15,20 +15,12 @@ import static aquality.selenium.browser.AqualityServices.getBrowser;
 
 public class WikipediaDownloadTest extends BaseTest {
     private final MainPage mainPage = new MainPage();
-    private String articleName = TestDataReader.getWikipediaData().getArticleName();
-    private String desiredLanguage = TestDataReader.getWikipediaData().getDesiredLanguage();
+    private final String articleName = System.getProperty("subject", TestDataReader.getWikipediaData().getArticleName());
+    private final String desiredLanguage = System.getProperty(System.getProperty("wiki_language"),TestDataReader.getWikipediaData().getDesiredLanguage());
     private File downloadedFile;
 
     @Test
     public void wikipediaDownloadTest() {
-        String subject = System.getProperty("subject");
-        if (subject != null) {
-            articleName = subject;
-        }
-        String language = System.getProperty("wiki_language");
-        if (language != null) {
-            desiredLanguage = language;
-        }
         Assert.assertTrue(mainPage.state().isDisplayed(), "Wikipedia is not opened");
         mainPage.selectLanguage(desiredLanguage);
         mainPage.inputArticleNameAndSearch(articleName);
