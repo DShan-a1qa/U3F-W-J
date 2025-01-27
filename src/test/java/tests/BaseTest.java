@@ -12,13 +12,6 @@ public abstract class BaseTest {
 
     @BeforeMethod
     public void setup() {
-
-        String browserName = System.getProperty("browser");
-        if (browserName != null) {
-            System.out.println("Browser name is set to " + System.getProperty("browserName"));
-            System.setProperty("browserName", browserName);
-            System.out.println("Browser name is set to " + System.getProperty("browserName"));
-        }
         getBrowser().maximize();
         getBrowser().goTo(EnvDataReader.getEnvData().getHost());
     }
